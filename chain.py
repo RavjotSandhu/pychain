@@ -165,9 +165,8 @@ def create_chain_from_dump(chain_dump):
         block = Block(block_data["index"],
                       block_data["transactions"],
                       block_data["timestamp"],
-                      block_data["previous_hash"],
-                     )
-        
+                      block_data["previous_hash"])
+                     
         added = generated_blockchain.add_block(block)
         if not added:
             raise Exception("The chain dump is tampered!!")
@@ -180,7 +179,7 @@ def get_pending_tx():
     return json.dumps(blockchain.unconfirmed_transactions)
 
 
-@app.route('/nodes/resolve', methods=['GET'])
+@app.route('/resolve_conflict', methods=['GET'])
 def consensus():
     """
     Our naive consnsus algorithm. If a longer valid chain is
