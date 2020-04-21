@@ -1,5 +1,5 @@
 # pychain
-Making a simple blockchain using python, and following functionality to it.
+Making a simple blockchain using python, and add following functionality to it.
     1.List all blocks
     2.Create a new block with a content given by the user
     3.List or add peers
