@@ -44,8 +44,7 @@ class Blockchain:
         block.timestamp=time()
         block.transactions=self.current_transactions
         block.previous_hash= previous_hash or self.hash(self.chain[-1])
-        # Reset the current list of transactions
-        #self.current_transactions = []
+       
         self.chain.append(block)
         return True
 
