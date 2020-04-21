@@ -204,6 +204,3 @@ def consensus():
         return True
 
     return False
-
-# Uncomment this line if you want to specify the port number in the code
-#app.run(debug=True, port=8000)
