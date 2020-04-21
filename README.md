@@ -9,9 +9,7 @@ The first step is to decide the block structure. To keep things a little bit sim
 We define a function to compute the hash of a block as it needs to be hashed to keep integrity of the data.
 ```Python
 def compute_hash(self):
-        """
-        A function that return the hash of the block contents.
-        """
+       
         block_string = json.dumps(self.__dict__, sort_keys=True)
         return sha256(block_string.encode()).hexdigest()
 ```
@@ -94,7 +92,7 @@ def register_new_peers():
     # so that he can sync
     return get_chain()
    ``` 
-   We the route our app to register them and regenerate blockchain:
+We the route our app to register them and regenerate blockchain:
    ```Python
    
 @app.route('/register_with', methods=['POST'])
@@ -137,9 +135,7 @@ def create_chain_from_dump(chain_dump):
         block = Block(block_data["index"],
                       block_data["transactions"],
                       block_data["timestamp"],
-                      block_data["previous_hash"],
-                     )
-        
+                      block_data["previous_hash"])
         added = generated_blockchain.add_block(block)
         if not added:
             raise Exception("The chain dump is tampered!!")
@@ -149,10 +145,6 @@ Finally a function to make consensus. There should be only one explicit set of b
 ```Python
 @app.route('/nodes/resolve', methods=['GET'])
 def consensus():
-    """
-    Our naive consnsus algorithm. If a longer valid chain is
-    found, our chain is replaced with it.
-    """
     global blockchain
 
     longest_chain = None
@@ -171,4 +163,4 @@ def consensus():
         return True
 
     return False
-    ```
+```
