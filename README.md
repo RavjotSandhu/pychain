@@ -143,7 +143,7 @@ def create_chain_from_dump(chain_dump):
 ```
 Finally a function to make consensus. There should be only one explicit set of blocks in a chain at a given time.So in case of conflicts we choose longest chain.
 ```Python
-@app.route('/nodes/resolve', methods=['GET'])
+@app.route('/resolve_conflicts', methods=['GET'])
 def consensus():
     global blockchain
 
